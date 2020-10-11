@@ -14,7 +14,8 @@ namespace BootCamp.Chapter
         /// <param name="cleanedFile">Cleaned up file without any "_".</param>
         public static void Clean(string dirtyFile, string cleanedFile)
         {
-            File.WriteAllText(cleanedFile, "a");
+            if (!File.Exists(dirtyFile) || !File.Exists(cleanedFile)) throw new ArgumentException("File paths are invalid/do not exist.");
+            //File.WriteAllText(cleanedFile, "a");
         }
     }
 }
